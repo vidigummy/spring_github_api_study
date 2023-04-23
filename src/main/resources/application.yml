@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/TEST?serverTimezone=Asia/Seoul
+    username: vidi
+    password: vidi
+  jpa:
+    show-sql : true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  main:
+    allow-circular-references: true
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: dac63dfd5020629a9124
+            client-secret: 1613be71d346377998088257090eda8ee052ebc7
+            scope:
+              - user:email
+              - user:repo
+              - user:gist
+        provider:
+          github:
+            user-name-attribute: login
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
